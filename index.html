@@ -1,45 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ZFudge</title>
-	<meta name="google-site-verification" content="R3WVKwHQMRSgjtjbqBPBtcJ3VqXwopJ9_pZmVIXnzJU" />
-	<meta name="description" content="Zach Fudge" />
-	<meta name="keywords" content="Zach,Fudge,Colorado,Web" />
-	<meta charset="UTF-8" />
-	<meta name='viewport' content=' width=device-width, initial-scale=0.75, maximum-scale=0.75, user-scalable=0' />
-	<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" />
-	<link rel='stylesheet' type='text/css' href='styles/main.css' />
-	<link rel="shortcut icon" type="image/x-icon" href="images/thumbnails/zf.ico" />
+	<title>Random Quote Generator</title>
+	<link rel="stylesheet" type="text/css" href="quote.css">
 </head>
 <body>
-	<header id='head'>
-		<nav id='nav-bar'>
-			<div class='link-containers'>
-				<span id='about' class='links'>About</span>
-			</div>
-			<div class='link-containers'>
-				<span id='projects' class='links'>Projects</span>
-			</div>
-			<div class='link-containers'>
-				<a target="_blank" id='github' href='https://github.com/ZFudge' class='links'>Github</a>
-			</div>
-			<div class='link-containers'>
-				<a id='email' href="mailto:contact@zachfudge.com?Subject=Hello" target="_top" class='links'>Email</a>
-			</div>
-		</nav>
-		<div id='project-container'>
-			<div class='row'>
-				<span class='project' id='snow' onclick="header.projectOut(this)" ></span>
-				<span class='project' id='fractal-tree' onclick="header.projectOut(this)" ></span>
-				<span class='project' id='circle-lines' onclick="header.projectOut(this)" ></span>
-			</div>
-			<div class='row'>
-				<span class='project' id='sprinkles' onclick="header.projectOut(this)" ></span>
-				<span class='project' id='pong' onclick="header.projectOut(this)" ></span>
-			</div>
+	<div id='container'>
+		<div id='reponse-container'>
+			
 		</div>
-	</header>
-	<canvas id='home-canvas' width='1500' height='1200'></canvas>
-	<script type="text/javascript" src='scripts/index.js'></script>
+		<p id='quote'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
+		<p id='source'>-The Guy</p>
+		<br>
+		<div id='btn-container'>
+			<button id='newQuote' class='color'>New Quote</button>
+			<button id='tweet' class='color'></button>
+			<button id='reddit' class='color'></button>
+		</div>
+	</div>
+	<script type="text/javascript" src='quote.js'js></script>
 </body>
 </html>
