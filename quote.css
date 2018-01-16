@@ -28,6 +28,7 @@ p {
 #btn-container {
   height: auto;
   margin: 10px;
+  padding: 10px;
 }
 
 button {
@@ -41,7 +42,7 @@ button {
 }
 
 .color {
-  background-color: rgba(255,0,33,0.65);
+  /*background-color: rgba(255,0,33,0.65);*/
 }
 
 #newQuote {
