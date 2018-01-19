@@ -21,7 +21,7 @@ colorShift();
 
 function getNewQuoteAndColor() {
   const quote = xhr[Math.floor(Math.random() * xhr.length)];
-  const text = quote.content.replace(/<p>/ig, '');
+  const text = quote.content.replace(/<p>|<\/p>/ig, '');
   const person = `- ${quote.title}`;
   page.quote.innerHTML = text;
   page.person.innerHTML = person; 
@@ -30,7 +30,7 @@ function getNewQuoteAndColor() {
 }
 
 function tweetAssign(quote,name) {
-  page.tweet.children[0].href = `https://twitter.com/intent/tweet?text=${quote}${name}`;
+  page.tweet.href = `https://twitter.com/intent/tweet?text=${quote}${name}`;
 }
 
 let xhr = new XMLHttpRequest();
@@ -43,3 +43,7 @@ xhr.onreadystatechange = function() {
 
 xhr.open("GET", "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=20");
 xhr.send();
+
+function tweetWindow() {
+  window.open(page.tweet.href, 'newwindow', 'width=300,height=350');
+}
