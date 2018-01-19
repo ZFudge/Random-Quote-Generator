@@ -1,6 +1,5 @@
 body {
   background-color: rgba(255,0,33,0.65);
-  transition-duration: 3s;
 }
 
 * {
@@ -17,6 +16,7 @@ body {
 }
 
 p {
+  transition-duration: 3s;
   text-align: center;
   font-size: 20px;
   color: rgba(255,0,33,0.65);
@@ -29,7 +29,7 @@ p {
   font-family: 'Montserrat', sans-serif;
 }
 
-#source {
+#personName {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -51,10 +51,6 @@ button {
 
 #tweet {
   padding: 1px;
-}
-
-.color {
-  /*background-color: rgba(255,0,33,0.65);*/
 }
 
 #newQuote {
