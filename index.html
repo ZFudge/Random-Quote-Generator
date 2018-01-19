@@ -3,17 +3,21 @@
 <head>
 	<title>Random Quote Generator</title>
 	<link rel="stylesheet" type="text/css" href="quote.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
 </head>
 <body>
 	<div id='container'>
 		<p id='quote'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
-		<p id='source'>-The Guy</p>
+		<p id='source'>-Some Guy</p>
 		<div id='btn-container'>
 			<button id='newQuote' class='color'>New Quote</button>
-			<button id='tweet' class='color'></button>
+			<button id='tweet' class='color'>
+				<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false"></a>
+			</button>
 			<button id='reddit' class='color'></button>
 		</div>
 	</div>
+	<!--<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
 	<script type="text/javascript" src='quote.js'js></script>
 </body>
 </html>
