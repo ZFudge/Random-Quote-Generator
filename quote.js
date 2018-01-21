@@ -7,7 +7,6 @@ const container = {
 }
 
 const page = {
-  xhr: null,
   colorShift: function() {
     const newColor = container.colors[Math.floor(Math.random() * container.colors.length)];
     document.body.style.backgroundColor = newColor;
@@ -18,29 +17,35 @@ const page = {
     })
   },
   getNewQuoteAndColor: function() {
-    const quote = page.xhr[Math.floor(Math.random() * page.xhr.length)];
+    const index = Math.floor(Math.random() * page.quotes.length);
+    const quote = page.quotes[index];
+    page.purgeQuote(index);
     const text = quote.content.replace(/<p>|<\/p>/ig, '');
     const person = `- ${quote.title}`;
     container.quote.innerHTML = text;
     container.person.innerHTML = person; 
-    21
     page.tweetAssign(text, person);
     page.colorShift();
   },
   tweetWindow: () => window.open(container.tweet.href, 'newwindow', 'width=300,height=350'),
   tweetAssign: (quote,name) => container.tweet.href = `https://twitter.com/intent/tweet?text=${quote}${name}`,
   getQuotes: function() {
-    const xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4) {
-        page.xhr = [].slice.call(JSON.parse(xhr.response));
+        page.quotes = [].slice.call(JSON.parse(xhr.response));
+        page.quotes = page.quoteTrim(page.quotes);
       }
     }
     xhr.open("GET", "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=10");
     xhr.send();
-  }
+  },
+  purgeQuote: (index) => page.quotes.splice(index,1),
+  checkLength: (str) => str.length <= 240,
+  quoteTrim: (arr) => arr.filter((c) => c.content.length <= 140)
 };
 
 container.newQuoteBtn.onclick = page.getNewQuoteAndColor;
 page.colorShift();
 page.getQuotes();
+
