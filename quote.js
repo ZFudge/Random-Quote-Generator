@@ -26,10 +26,11 @@ const page = {
     container.person.innerHTML = person; 
     page.tweetAssign(text, person);
     page.colorShift();
+    page.checkState();
   },
   tweetWindow: () => window.open(container.tweet.href, 'newwindow', 'width=300,height=350'),
   tweetAssign: (quote,name) => container.tweet.href = `https://twitter.com/intent/tweet?text=${quote}${name}`,
-  getQuotes: function() {
+  requestQuotes: function() {
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4) {
@@ -41,11 +42,11 @@ const page = {
     xhr.send();
   },
   purgeQuote: (index) => page.quotes.splice(index,1),
-  checkLength: (str) => str.length <= 240,
-  quoteTrim: (arr) => arr.filter((c) => c.content.length <= 140)
+  quoteTrim: (arr) => arr.filter((c) => c.content.length <= 140),
+  checkState: () => (page.quotes.length <= 0) ? page.requestQuotes():null
 };
 
 container.newQuoteBtn.onclick = page.getNewQuoteAndColor;
 page.colorShift();
-page.getQuotes();
+page.requestQuotes();
 
