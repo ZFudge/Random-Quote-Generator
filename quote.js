@@ -20,16 +20,16 @@ const page = {
     const index = Math.floor(Math.random() * page.quotes.length);
     const quote = page.quotes[index];
     page.purgeQuote(index);
-    const text = quote.content.replace(/<p>|<\/p>/ig, '');
+    const text = quote.content.replace(/<p>|<\/p>|  |\n/ig, '');
     const person = `- ${quote.title}`;
     container.quote.innerHTML = text;
-    container.person.innerHTML = person; 
+    container.person.innerHTML = person;
     page.tweetAssign(text, person);
     page.colorShift();
     page.checkState();
   },
   tweetWindow: () => window.open(container.tweet.href, 'newwindow', 'width=300,height=350'),
-  tweetAssign: (quote,name) => container.tweet.href = `https://twitter.com/intent/tweet?text=${quote}${name}`,
+  tweetAssign: (quote,name) => container.tweet.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(quote.replace(/&#8217;/gi, "'").replace(/&#8220|&#8221;;/gi, '"')+' '+name)}`,
   requestQuotes: function() {
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
