@@ -8,14 +8,16 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
 </head>
 <body>
-	<div id='container'>
-		<p id='quote'>Click "New Quote" to receive a random quote</p>
-		<p id='personName'></p>
-		<div id='btn-container'>
-			<button id='newQuote' class='color'>New Quote</button>
-			<button id='tweet' class='color' onclick="tweetWindow()">
-				<img class='icon' src='twitter.png' >
-			</button>
+	<div id='outer-container'>
+		<div id="inner-container">
+			<p id='quote'>Click "New Quote" to receive a random quote</p>
+			<p id='personName'></p>
+			<div id='btn-container'>
+				<button id='newQuote'>New Quote</button>
+				<button id='tweet' onclick="page.tweetWindow()">
+					<img class='icon' src='twitter.png' >
+				</button>
+			</div>
 		</div>
 	</div>
 	<script src='quote.js'></script>
